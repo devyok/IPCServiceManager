@@ -1,0 +1,86 @@
+
+BuildCommandRunner buildCommandRunner = new BuildCommandRunner();
+gradle.ext.buildCommandRunner = buildCommandRunner;
+
+
+class BuildCommandRunner{
+
+		static final String TAG = BuildCommandRunner.class.getSimpleName();
+		private String command;
+		
+		public BuildCommandRunner(){
+		}
+		
+		public void setCommand(String cmd){
+			this.command = cmd;
+		}
+		
+		public void execute() {
+
+			println("execute build command =  " + command );
+			
+			Process p = null;
+			try {
+				p = Runtime.getRuntime().exec("cmd /c " + command);
+				startReadThreads(p);
+				p.waitFor();
+
+			} catch (Exception e) {
+				
+			} finally {
+				if(p!=null)p.destroy();
+				
+				println("build success ("+command+")");
+			}
+
+		}
+
+		private void startReadThreads(Process p) {
+			final InputStream stdStream = p.getInputStream();
+			final InputStream errorStream = p.getErrorStream();
+			new Thread() {
+				public void run() {
+					BufferedReader br = new BufferedReader(
+							new InputStreamReader(stdStream));
+					try {
+						String line = null;
+						while ((line = br.readLine()) != null) {
+							if (line != null) {
+								println("[build-command] normal line = " + line);
+							}
+						}
+					} catch (IOException e) {
+						e.printStackTrace();
+					} finally {
+						try {
+							stdStream.close();
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+					}
+				}
+			}.start();
+			new Thread() {
+				public void run() {
+					BufferedReader br = new BufferedReader(new InputStreamReader(errorStream));
+					try {
+						String line = null;
+						while ((line = br.readLine()) != null) {
+							if (line != null) {
+								println("[build-command] error line = "+line);
+							}
+						}
+					} catch (IOException e) {
+						e.printStackTrace();
+					} finally {
+						try {
+							errorStream.close();
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+					}
+				}
+			}.start();
+		}
+		
+	}

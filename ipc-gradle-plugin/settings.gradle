@@ -1,0 +1,2 @@
+
+apply from: settings.rootDir.getAbsolutePath() + "/build-home/build-script/build-nexus-config.gradle";

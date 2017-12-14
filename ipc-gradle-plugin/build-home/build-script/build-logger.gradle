@@ -1,0 +1,14 @@
+import groovy.transform.Field
+
+@Field tag = "[logger]";
+
+def logger = new Logger();
+gradle.ext.logger = logger;
+
+class Logger {
+
+	def print(def tag,def log){
+		println tag + " ---- " + log;
+	}
+
+}

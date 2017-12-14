@@ -1,0 +1,9 @@
+gradle.ext {
+
+	ARTIFACT_SNAPSHOT_VERSION='1.0.0.61-SNAPSHOT'
+	ARTIFACT_RELEASE_VERSION='1.0.0.0'
+
+	ARTIFACT_ID='gradle_plugins_test'
+	ARTIFACT_GROUP_ID='com.zed3'
+
+}

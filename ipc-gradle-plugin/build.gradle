@@ -1,0 +1,38 @@
+apply plugin: 'java'
+apply plugin: 'groovy'
+apply plugin: 'maven'
+
+apply from: projectDir.getAbsolutePath() + "/build-home/build-script/build-artifact-config.gradle";
+apply from: projectDir.getAbsolutePath() + "/build-home/build-script/build-upload.gradle";
+
+buildscript {
+    repositories {
+        maven{ url gradle.NEXUS_SERVER_GROUP }
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.3.2'
+    }
+}
+
+configurations.all {
+    // check for updates every build
+    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+}
+
+dependencies {
+
+    compile 'com.android.tools.build:gradle:2.1.3'
+    compile 'com.github.javaparser:javaparser-core:2.4.0'
+
+    compile gradleApi()
+    compile localGroovy()
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+repositories {
+    maven{ url gradle.NEXUS_SERVER_GROUP }
+    jcenter()
+}
+
+

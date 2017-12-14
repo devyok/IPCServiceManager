@@ -1,0 +1,23 @@
+apply plugin: 'maven'
+
+def isSnapshot = true
+if(project.hasProperty('repositoryRelease')){
+	isSnapshot = false
+}
+
+print 'is snapshot = ' + isSnapshot
+
+uploadArchives {
+	repositories {
+		mavenDeployer {
+
+			repository(url: isSnapshot ? gradle.NEXUS_SERVER_SNAPSHOT : gradle.NEXUS_SERVER_RELEASE) {
+				authentication(userName: gradle.NEXUS_SERVER_UNAME, password: gradle.NEXUS_SERVER_UPWD)
+			}
+
+			pom.version = isSnapshot ? gradle.ARTIFACT_SNAPSHOT_VERSION :gradle.ARTIFACT_RELEASE_VERSION
+			pom.artifactId = gradle.ARTIFACT_ID
+			pom.groupId = gradle.ARTIFACT_GROUP_ID
+		}
+	}
+}
