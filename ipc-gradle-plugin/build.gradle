@@ -1,17 +1,18 @@
 apply plugin: 'java'
 apply plugin: 'groovy'
-apply plugin: 'maven'
 
-apply from: projectDir.getAbsolutePath() + "/build-home/build-script/build-artifact-config.gradle";
-apply from: projectDir.getAbsolutePath() + "/build-home/build-script/build-upload.gradle";
+version = '0.0.1'
+group = 'com.devyok.ipc' // 组名
 
 buildscript {
     repositories {
-        maven{ url gradle.NEXUS_SERVER_GROUP }
         jcenter()
+        mavenCentral()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.3.2'
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.6'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
     }
 }
 
@@ -31,8 +32,9 @@ dependencies {
 }
 
 repositories {
-    maven{ url gradle.NEXUS_SERVER_GROUP }
     jcenter()
+        mavenCentral()
 }
 
 
+apply from: 'bintray.gradle'
