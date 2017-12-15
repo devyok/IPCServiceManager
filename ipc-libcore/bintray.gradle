@@ -5,14 +5,13 @@ def siteUrl = 'https://github.com/devyok/ServiceManager'
 def gitUrl = 'https://github.com/devyok/ServiceManager.git'
 
 
+
 install {
     repositories.mavenInstaller {
         // This generates POM.xml with proper parameters
         pom {
-            artifactId = ""
-
             project {
-
+                artifactId 'ipc-libcore'
                 packaging 'aar'
                 name 'A framework for providing interprocess communication capabilities' //项目描述
                 url siteUrl
@@ -65,9 +64,8 @@ bintray {
     configurations = ['archives']
     pkg {
 
-        repo = 'maven' // 上传到中央仓库的名称
+        repo = 'maven_share' // 上传到中央仓库的名称
         name = 'ServiceManager' // 上传到jcenter 的项目名称
-        userOrg = ''
         desc = 'ServiceManager - A framework for providing interprocess communication capabilities' // 项目描述
         websiteUrl = siteUrl
         vcsUrl = gitUrl
