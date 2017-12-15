@@ -1,9 +1,0 @@
-gradle.ext {
-
-	NEXUS_SERVER_GROUP='http://10.0.0.57:8081/nexus/content/groups/public/'
-	NEXUS_SERVER_RELEASE='http://10.0.0.57:8081/nexus/content/repositories/release/'
-	NEXUS_SERVER_SNAPSHOT='http://10.0.0.57:8081/nexus/content/repositories/snapshot/'
-	NEXUS_SERVER_UNAME='admin'
-	NEXUS_SERVER_UPWD='123456'
-
-}
