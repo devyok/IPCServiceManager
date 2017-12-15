@@ -9,4 +9,4 @@ Android进程间通信框架
 - ServiceManager大大的降低了进程间的依赖，增强了灵活性，扩展性与可读性，同时提升了开发效率。
 
 
-- ServiceManager为了简化开发人员的配置和降低错误，ServiceManager提供gradle插件来帮助开发人员在编译阶段完成配置等。
+- ServiceManager为了简化开发人员的配置和降低错误，ServiceManager提供gradle插件来帮助开发人员在编译阶段完成配置。
