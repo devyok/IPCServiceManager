@@ -76,7 +76,7 @@ APK中。框架在init阶段会获取Manifest中的provider信息生成对应的
 	@IPCConfig(isExported = false,processName = "sample.p1",serviceName = "sample.s1") 
 
 ### 第五步 ###
-使用远程服务
+获取并调用服务
 
 	IBinder service = ServiceManager.getService("sample.s1");
     IRemoteService1 client1 = IRemoteService1.Stub.asInterface(service);
