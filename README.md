@@ -17,6 +17,7 @@ ServiceManager(简称：svcmgr)的实现并不复杂，但凡使用svcmgr根据�
 APK中。框架在init阶段会获取Manifest中的provider信息生成对应的URI即可实现通信。 具体实现请见源码。
 
 # 如何使用 #
+[直接看实例代码](https://github.com/devyok/ServiceManager/tree/master/ipc-sample)
 ### 第一步 ###
 在gradle文件引入ServiceManager插件
 
@@ -45,6 +46,29 @@ APK中。框架在init阶段会获取Manifest中的provider信息生成对应的
 		LogControler.enableDebug();
 	}
 		
+### 第四步 ###
+实现远程服务
+
+1. 首先你需要先继承IPCService,框架要求必须实现下面两个方法（getService与onServiceCreate）,在getService返回IBinder接口，
+这个接口的实现，可以通过aidl生成也可以extends Binder来实现。onServiceCreate方法主要提供一个初始化服务的机会。
+
+	public class IPCService1 extends IPCService {
+
+	    @Override
+	    public IBinder getService(String selection) {
+	        return null;
+	    }
+	
+	    @Override
+	    public void onServiceCreate() {
+	        
+	    }
+	}
+
+2.通过IPCConfig来声明此服务器的进程信息
+	
+	@IPCConfig(isExported = false,processName = "sample.p1",serviceName = "sample.s1") 
+
 
 
 # License #
