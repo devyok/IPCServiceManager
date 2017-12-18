@@ -1,0 +1,44 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.devyok.ipc.sample">
+
+    <application
+        android:name="com.devyok.ipc.sample.SampleApplication"
+        android:allowBackup="true"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        >
+
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name="com.devyok.ipc.sample.client.AndroidService1"
+            android:process=":AndroidService1">
+            <intent-filter>
+                <action android:name="com.AndroidService1" />
+            </intent-filter>
+        </service>
+
+        <service
+            android:name="com.devyok.ipc.sample.client.AndroidService2"
+            android:process=":AndroidService2">
+            <intent-filter>
+                <action android:name="com.AndroidService2" />
+            </intent-filter>
+        </service>
+
+        <service
+            android:name="com.devyok.ipc.sample.client.AndroidService3"
+            android:process=":AndroidService3">
+            <intent-filter>
+                <action android:name="com.AndroidService3" />
+            </intent-filter>
+        </service>
+
+    </application>
+</manifest>
