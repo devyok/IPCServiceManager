@@ -84,8 +84,9 @@ APK中。框架在init阶段会获取Manifest中的provider信息生成对应的
 
 
 # 其他用法 #
-### 第一步 ###
-不需要通过继承IPCService，可直接通过ServiceManager#addService添加一个服务。 使用与上面方法一样。 通过ServiceManager.getService("xx");获取并使用
+
+不需要通过继承IPCService，可直接通过ServiceManager#addService添加一个服务。 使用与上面方法一样。 通过ServiceManager.getService("xx");获取并使用。
+
 	ServiceManager.addService("xx", new IRemoteService1.Stub() {
 				
 		@Override
