@@ -19,7 +19,7 @@ APK中。框架在init阶段会获取Manifest中的provider信息生成对应的
 # 如何使用 #
 [直接看实例代码](https://github.com/devyok/ServiceManager/tree/master/ipc-sample)
 ### 第一步 ###
-在gradle文件引入ServiceManager插件
+在gradle中引入ServiceManager插件
 
 	buildscript {
 	    dependencies {
@@ -28,7 +28,7 @@ APK中。框架在init阶段会获取Manifest中的provider信息生成对应的
 	}
 
 ### 第二步 ###
-在gradle文件中引入ipc-libcore
+在gradle中引入ipc-libcore
 	
 	
 	dependencies {
@@ -49,25 +49,38 @@ APK中。框架在init阶段会获取Manifest中的provider信息生成对应的
 ### 第四步 ###
 实现远程服务
 
-1. 首先你需要先继承IPCService,框架要求必须实现下面两个方法（getService与onServiceCreate）,在getService返回IBinder接口，
+1. 首先你需要先继承IPCService,框架要求必须实现下面两个方法（getService与onServiceCreate）,getService返回IBinder接口，
 这个接口的实现，可以通过aidl生成也可以extends Binder来实现。onServiceCreate方法主要提供一个初始化服务的机会。
+		
+		IRemoteService1.aidl
+		interface IRemoteService1 {
+			void run(String p1);
+		}	
+		
+		IPCService1.java
+		public class IPCService1 extends IPCService {
 
-	public class IPCService1 extends IPCService {
-
-	    @Override
-	    public IBinder getService(String selection) {
-	        return null;
-	    }
-	
-	    @Override
-	    public void onServiceCreate() {
-	        
-	    }
-	}
+		    @Override
+		    public IBinder getService(String selection) {
+		        return null;
+		    }
+		
+		    @Override
+		    public void onServiceCreate() {
+		        
+		    }
+		}
 
 2.通过IPCConfig来声明此服务器的进程信息
 	
 	@IPCConfig(isExported = false,processName = "sample.p1",serviceName = "sample.s1") 
+
+### 第五步 ###
+使用远程服务
+
+	IBinder service = ServiceManager.getService("sample.s1");
+    IRemoteService1 client1 = IRemoteService1.Stub.asInterface(service);
+	client1.run("params");
 
 
 
