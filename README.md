@@ -83,6 +83,16 @@ APK中。框架在init阶段会获取Manifest中的provider信息生成对应的
 	client1.run("params");
 
 
+# 其他用法 #
+### 第一步 ###
+不需要通过继承IPCService，可直接通过ServiceManager#addService添加一个服务。 使用与上面方法一样。 通过ServiceManager.getService("xx");获取并使用
+	ServiceManager.addService("xx", new IRemoteService1.Stub() {
+				
+		@Override
+		public void run(String p1) throws RemoteException {
+			LogControler.info("AndroidService1", "[svcmgr service1] run = " + p1);
+		}
+	});
 
 # License #
 ServiceManager is released under the [Apache 2.0 license](https://github.com/devyok/ServiceManager/blob/master/LICENSE).
