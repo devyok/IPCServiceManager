@@ -38,8 +38,10 @@ Android进程间通信框架
 
 在初始化之前你可以打开ServiceManager的调试开发
 
-	LogControler.info("SampleApplication", "SampleApplication create");
-
+	if(BuildConfig.DEBUG){
+		LogControler.enableDebug();
+	}
+		
 
 
 # License #
