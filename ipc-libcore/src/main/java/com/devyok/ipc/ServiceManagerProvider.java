@@ -5,7 +5,9 @@ import android.os.IBinder;
 import com.devyok.ipc.utils.LogControler;
 
 import java.util.concurrent.ConcurrentHashMap;
-
+/**
+ * @author DengWei
+ */
 public class ServiceManagerProvider extends IPCService{
 
 	private static final String LOG_TAG = ServiceManagerProvider.class.getSimpleName();

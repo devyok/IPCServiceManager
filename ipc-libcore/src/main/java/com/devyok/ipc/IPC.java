@@ -5,7 +5,9 @@ import android.net.Uri;
 import android.os.Process;
 
 import com.devyok.ipc.utils.Utils;
-
+/**
+ * @author DengWei
+ */
 class IPC {
 	
 	static Uri SERVICE_MANAGER_URI = Uri.parse("content://ipc_servicemanager/client");

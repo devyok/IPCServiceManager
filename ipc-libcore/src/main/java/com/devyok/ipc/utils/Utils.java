@@ -1,6 +1,7 @@
 package com.devyok.ipc.utils;
 
 import android.database.Cursor;
+import android.os.IBinder;
 
 import java.io.Closeable;
 import java.io.FileInputStream;
@@ -8,7 +9,7 @@ import java.io.IOException;
 import java.util.zip.ZipFile;
 
 /**
- * @author wei.deng
+ * @author DengWei
  */
 public final class Utils {
 
@@ -72,6 +73,10 @@ public final class Utils {
         } catch (Exception e) {
             // ignore
         }
+    }
+
+    public static boolean isAlive(IBinder binder){
+        return (binder!=null && binder.isBinderAlive() && binder.pingBinder());
     }
     
 }

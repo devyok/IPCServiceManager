@@ -1,15 +1,21 @@
 package com.devyok.ipc;
 
-import java.io.FileDescriptor;
-
 import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
 
 import com.devyok.ipc.exception.IPCException;
+import com.devyok.ipc.utils.LogControler;
 
-public class BinderProxy implements IBinder , IBinder.DeathRecipient{
+import java.io.FileDescriptor;
+
+/**
+ * @author DengWei
+ */
+class BinderProxy implements IBinder , IBinder.DeathRecipient{
+
+	static final String LOG_TAG = "BinderProxy";
 
 	private IBinder target;
 	private String serviceName;
@@ -30,14 +36,24 @@ public class BinderProxy implements IBinder , IBinder.DeathRecipient{
 	}
 	
 	private IBinder getBinder() throws RemoteException {
-		
-		if(target == null){
+
+		LogControler.info(LOG_TAG, "getBinder transact = " + target + " , target.isBinderAlive() = " + target.isBinderAlive() + " , target.pingBinder() = " + target.pingBinder());
+
+		if((target == null) || (target!=null && (!target.isBinderAlive() || !target.pingBinder()))){
 			try {
+
+				LogControler.info(LOG_TAG, "start get service from svcmgr");
+
 				this.target = ServiceManager.getServiceInternal(this.serviceName);
+
+				LogControler.info(LOG_TAG, "getServiceInternal target = " + target);
+
 			} catch (IPCException e) {
 				e.printStackTrace();
 			}
 		}
+
+		LogControler.info(LOG_TAG, "getBinder final target = " + target);
 		
 		if(target==null) {
 			throw new RemoteException();
@@ -95,12 +111,14 @@ public class BinderProxy implements IBinder , IBinder.DeathRecipient{
 	@Override
 	public boolean transact(int code, Parcel data, Parcel reply, int flags)
 			throws RemoteException {
+
 		return getBinder().transact(code, data, reply, flags);
 	}
 
 	@Override
 	public void linkToDeath(DeathRecipient recipient, int flags)
 			throws RemoteException {
+		getBinder().linkToDeath(recipient,flags);
 	}
 
 	@Override
@@ -110,6 +128,7 @@ public class BinderProxy implements IBinder , IBinder.DeathRecipient{
 
 	@Override
 	public void binderDied() {
+		LogControler.info(LOG_TAG, "binder died {"+serviceName+"}");
 		target = null;
 	}
 

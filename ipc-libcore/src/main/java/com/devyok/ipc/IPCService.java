@@ -5,7 +5,9 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.IBinder;
-
+/**
+ * @author DengWei
+ */
 public abstract class IPCService extends ContentProvider{
 
 	public abstract IBinder getService(String selection);

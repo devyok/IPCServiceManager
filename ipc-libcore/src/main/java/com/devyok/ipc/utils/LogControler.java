@@ -2,7 +2,9 @@ package com.devyok.ipc.utils;
 
 import android.util.Log;
 
-
+/**
+ * @author DengWei
+ */
 public final class LogControler {
 
 	private static boolean DEBUG = false;

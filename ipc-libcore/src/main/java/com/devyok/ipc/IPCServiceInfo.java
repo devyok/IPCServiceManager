@@ -4,9 +4,8 @@ import android.content.pm.ProviderInfo;
 import android.net.Uri;
 
 /**
- * Created by wei.deng on 2017/12/13.
+ * @author DengWei
  */
-
 class IPCServiceInfo {
 
     /**

@@ -1,5 +1,7 @@
 package com.devyok.ipc.exception;
-
+/**
+ * @author DengWei
+ */
 public class IPCTimeoutException extends IPCException{
 
 	public IPCTimeoutException(String message) {

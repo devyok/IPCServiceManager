@@ -4,7 +4,9 @@ package com.devyok.ipc;
 import android.database.MatrixCursor;
 import android.os.Bundle;
 import android.os.IBinder;
-
+/**
+ * @author DengWei
+ */
 class BinderCusrsor extends MatrixCursor {
 
 	public static final String BINDER_CURSOR = "BinderCusrsor";

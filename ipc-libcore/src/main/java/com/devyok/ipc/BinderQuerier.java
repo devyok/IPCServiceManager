@@ -13,7 +13,9 @@ import com.devyok.ipc.exception.IPCRuntimeException;
 import com.devyok.ipc.utils.LogControler;
 
 import java.util.concurrent.ConcurrentHashMap;
-
+/**
+ * @author DengWei
+ */
 final class BinderQuerier {
 
 	static Context sContext;
@@ -22,8 +24,15 @@ final class BinderQuerier {
 	
 	static final IBinder query(Context context,Uri uri,String name){
 		Cursor c = context.getContentResolver().query(uri, null, name, null, null);
-		IBinder binder = query(c);
-		return binder;
+		if(c!=null){
+			try {
+				IBinder binder = query(c);
+				return binder;
+			} finally {
+				c.close();
+			}
+		}
+		return null;
 	}
 
 	static final IBinder query(Cursor cursor) {

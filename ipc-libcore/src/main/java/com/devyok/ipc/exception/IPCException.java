@@ -1,6 +1,8 @@
 package com.devyok.ipc.exception;
 
-
+/**
+ * @author DengWei
+ */
 public class IPCException extends Exception{
 	/**
 	 * 

@@ -3,7 +3,9 @@ package com.devyok.ipc;
 import android.os.IBinder;
 import android.os.Parcel;
 import android.os.RemoteException;
-
+/**
+ * @author DengWei
+ */
 public abstract class ServiceCallback extends IServiceCallback.Stub{
 
 	@Override
