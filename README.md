@@ -11,7 +11,7 @@ Android进程间通信框架
 - 为了简化开发人员的配置和降低错误，ServiceManager提供gradle插件来帮助开发人员在编译阶段完成配置；
 
 # 技术实现 #
-ServiceManager(简称：svcmgr)的实现并不复杂，但凡使用svcmgr根据自身需求，可能需要继承IPCService(不是强制)，框架要求实现者需要提供IBinder接口，同时并通过IPCConfig(Annotation)来声明进程信息。svcmgr在Manifest process阶段会解析Annotation，每一个通过IPCConfig配置的服务都会在Mainfest文件中对应一个<provider/>节点，根据声明生成新的AndroidMainfest.xml文件，一起打包到
+ServiceManager(简称：svcmgr)的实现并不复杂，但凡使用svcmgr根据自身需求，可能需要继承IPCService(不是强制)，框架要求实现者提供IBinder接口，同时并通过IPCConfig(Annotation)来声明进程信息。svcmgr在Manifest process阶段会解析Annotation，每一个通过IPCConfig配置的服务都会在Mainfest文件中对应一个provider节点，根据声明生成新的AndroidMainfest.xml文件，一起打包到
 APK中。框架在init阶段会获取Manifest中的provider信息生成对应的URI即可实现通信。 具体实现请见源码。
 
 # 如何使用 #
