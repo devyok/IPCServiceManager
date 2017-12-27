@@ -96,7 +96,7 @@ APK中。框架在init阶段会获取Manifest中的provider信息生成对应的
 	});
 
 ## 设计 ##
-设计相关大图均在代码根目录下， 更多请参考![源码分析](https://github.com/devyok/ServiceManager)
+设计相关大图均在代码根目录下， 更多请参考[源码分析](http://blog.csdn.net/degwei)
 
 ![](https://raw.githubusercontent.com/devyok/ServiceManager/master/lib_design_component.png)
 
