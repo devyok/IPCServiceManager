@@ -95,6 +95,17 @@ APK中。框架在init阶段会获取Manifest中的provider信息生成对应的
 		}
 	});
 
+## 设计 ##
+设计相关大图均在代码根目录下， 更多请参考![源码分析](https://github.com/devyok/ServiceManager)
+
+![](https://raw.githubusercontent.com/devyok/ServiceManager/master/lib_design_component.png)
+
+![](https://raw.githubusercontent.com/devyok/ServiceManager/master/lib_design_package.png)
+
+![](https://raw.githubusercontent.com/devyok/ServiceManager/master/lib_design_class_core.png)
+
+![](https://raw.githubusercontent.com/devyok/ServiceManager/master/lib_design_seq_servicemanager_getservice.png)
+
 ## License ##
 ServiceManager is released under the [Apache 2.0 license](https://github.com/devyok/ServiceManager/blob/master/LICENSE).
 
