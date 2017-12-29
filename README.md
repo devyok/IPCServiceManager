@@ -1,4 +1,4 @@
-# ServiceManager
+# IPCServiceManager
 
 Android进程间通信框架
 
