@@ -115,9 +115,11 @@ APK中。框架在init阶段会获取Manifest中的provider信息生成对应的
 ![](https://raw.githubusercontent.com/devyok/IPCServiceManager/master/lib_design_class_exception.png)
 
 **各模块调用时序，见下图：**
+
 ![](https://raw.githubusercontent.com/devyok/IPCServiceManager/master/lib_design_seq_module_between_communication.png)
 
 **初始化(ServiceManager#init)，见下图：**
+
 ![](https://raw.githubusercontent.com/devyok/IPCServiceManager/master/lib_design_seq_servicemanager_init.png)
 
 **获取服务(ServiceManager#getService)，见下图：**
