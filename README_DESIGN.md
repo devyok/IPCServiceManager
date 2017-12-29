@@ -40,6 +40,8 @@ Android进程间通信框架
 ## 插件执行流程 ##
 ![](https://raw.githubusercontent.com/devyok/IPCServiceManager/master/plugin_design_flow.png)
 
+[如何集成使用](https://github.com/devyok/IPCServiceManager/blob/master/README.md)
+
 ## License ##
 ServiceManager is released under the [Apache 2.0 license](https://github.com/devyok/ServiceManager/blob/master/LICENSE).
 
