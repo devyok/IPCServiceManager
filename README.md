@@ -10,6 +10,8 @@ Android进程间通信框架
 
 [看看框架设计](https://github.com/devyok/IPCServiceManager/blob/master/README_DESIGN.md)
 
+![](https://raw.githubusercontent.com/devyok/IPCServiceManager/master/ServiceManager.png)
+
 ## 优势 ##
 
 - 大大的降低了进程间的依赖，增强了灵活性，扩展性与可读性；
