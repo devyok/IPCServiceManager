@@ -5,6 +5,10 @@ Android进程间通信框架
 ## 设计 ##
 设计相关大图均在代码根目录下， 更多请参考[源码分析](http://blog.csdn.net/degwei)
 
+
+![](https://raw.githubusercontent.com/devyok/IPCServiceManager/master/ServiceManager.png)
+
+
 **各组件依赖关系，见下图：**
 
 ![](https://raw.githubusercontent.com/devyok/ServiceManager/master/lib_design_component.png)
