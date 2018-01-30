@@ -40,7 +40,7 @@ IPCServiceManager(简称：svcmgr)的实现并不复杂，但凡使用svcmgr根�
 	
 	
 	dependencies {
-	    classpath 'com.devyok.ipc:ipc-libcore:0.0.2'
+	    compile 'com.devyok.ipc:ipc-libcore:0.0.2'
 	}
 	
 ### 第三步 ###
