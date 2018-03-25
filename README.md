@@ -1,5 +1,5 @@
 [![license](http://img.shields.io/badge/license-Apache2.0-brightgreen.svg?style=flat)](https://github.com/devyok/ServiceManager/blob/master/LICENSE)
-[![Release Version](https://img.shields.io/badge/release-0.0.2-brightgreen.svg)](https://jcenter.bintray.com/com/devyok/web/hybridmessenger-core/0.0.2/)
+[![Release Version](https://img.shields.io/badge/release-0.0.2-brightgreen.svg)](https://jcenter.bintray.com/com/devyok/web/hybridmessenger-core/0.0.1/)
 
 
 # IPCServiceManager
